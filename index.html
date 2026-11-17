@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>London Compass | 伦敦指南针</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#ffffff;
+color:#222;
+}
+
+:root{
+--navy:#0a2342;
+--gold:#d4af37;
+--light:#f8f9fb;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:white;
+box-shadow:0 2px 15px rgba(0,0,0,.08);
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+color:var(--navy);
+}
+
+.nav-right{
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+.lang-btn{
+padding:8px 14px;
+border:none;
+background:var(--navy);
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(10,35,66,.75),rgba(10,35,66,.75)),
+url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.3rem;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+.cta{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+background:var(--gold);
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:8px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:2.5rem;
+color:var(--navy);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:var(--navy);
+}
+
+.bg-light{
+background:var(--light);
+}
+
+.package{
+text-align:center;
+}
+
+.price{
+font-size:2rem;
+font-weight:bold;
+color:var(--gold);
+margin:20px 0;
+}
+
+.testimonial{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.founder{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.founder img{
+width:100%;
+border-radius:15px;
+}
+
+.faq-item{
+margin-bottom:25px;
+}
+
+.faq-item h4{
+color:var(--navy);
+margin-bottom:10px;
+}
+
+.contact{
+background:var(--navy);
+color:white;
+text-align:center;
+}
+
+.contact h2{
+margin-bottom:20px;
+}
+
+.contact a{
+color:#fff;
+text-decoration:none;
+}
+
+footer{
+padding:30px;
+background:#081726;
+color:white;
+text-align:center;
+}
+
+.hidden{
+display:none;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.founder{
+grid-template-columns:1fr;
+}
+
+section{
+padding:80px 6%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">London Compass</div>
+
+<div class="nav-right">
+<button class="lang-btn" onclick="switchLang()">中文 / EN</button>
+</div>
+
+</nav>
+
+<div id="cn">
+
+<section class="hero">
+
+<div>
+
+<h1>London Compass</h1>
+
+<p>
+帮助华人留学生、职场人士及家庭
+快速融入伦敦生活。
+</p>
+
+<div class="cta">
+
+<a href="#contact" class="btn">
+免费咨询
+</a>
+
+<a href="#services" class="btn btn-outline">
+了解服务
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<div class="section-title">
+<h2>我们的服务</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>🏠 租房安家</h3>
+<p>区域推荐、合同解读、中介沟通、入住指导。</p>
+</div>
+
+<div class="card">
+<h3>📑 生活落地</h3>
+<p>银行开户、手机卡、Council Tax、GP注册。</p>
+</div>
+
+<div class="card">
+<h3>🎓 留学生支持</h3>
+<p>住宿建议、校园生活、资源推荐。</p>
+</div>
+
+<div class="card">
+<h3>👨‍👩‍👧 家庭服务</h3>
+<p>学区信息、医疗体系、家庭适应支持。</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="bg-light">
+
+<div class="section-title">
+<h2>服务套餐</h2>
+</div>
+
+<div class="cards">
+
+<div class="card package">
+
+<h3>基础咨询</h3>
+
+<div class="price">£49/hr</div>
+
+<p>适合具体问题咨询</p>
+
+</div>
+
+<div class="card package">
+
+<h3>安家套餐</h3>
+
+<div class="price">£299</div>
+
+<p>30天微信支持</p>
+
+</div>
+
+<div class="card package">
+
+<h3>VIP Concierge</h3>
+
+<div class="price">£799+</div>
+
+<p>全程陪伴支持</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2>客户评价</h2>
+</div>
+
+<div class="cards">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐<br><br>
+刚到伦敦就完成开户和租房，
+节省了很多时间。
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐<br><br>
+给了我们很多本地经验，
+非常实用。
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2>创始人</h2>
+</div>
+
+<div class="founder">
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43b?w=800" alt="Founder">
+
+</div>
+
+<div>
+
+<h3>Letian Chen</h3>
+
+<br>
+
+<p>
+
+伦敦结构工程师。
+
+曾经历从初到英国到建立稳定生活的全过程。
+
+希望通过 London Compass 帮助更多华人顺利融入伦敦生活。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2>常见问题</h2>
+</div>
+
+<div class="faq-item">
+<h4>可以提前咨询吗？</h4>
+<p>当然可以，越早规划越能避免踩坑。</p>
+</div>
+
+<div class="faq-item">
+<h4>你们会帮我租房吗？</h4>
+<p>我们提供建议和支持，不参与房屋交易。</p>
+</div>
+
+<div class="faq-item">
+<h4>是否提供移民建议？</h4>
+<p>不提供移民法律服务，仅提供生活安家支持。</p>
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>联系我们</h2>
+
+<p>微信：LondonCompass</p>
+
+<p>WhatsApp：+44 XXXXXXXXXX</p>
+
+<p>Email：hello@londoncompass.co.uk</p>
+
+<br>
+
+<a class="btn" href="#">
+预约咨询
+</a>
+
+</section>
+
+</div>
+
+<div id="en" class="hidden">
+
+<section class="hero">
+
+<div>
+
+<h1>London Compass</h1>
+
+<p>
+Helping Chinese students,
+professionals and families
+settle confidently into life in London.
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+
+London Compass © 2026
+
+</footer>
+
+<script>
+
+function switchLang(){
+
+const cn=document.getElementById('cn');
+const en=document.getElementById('en');
+
+cn.classList.toggle('hidden');
+en.classList.toggle('hidden');
+
+}
+
+</script>
+
+</body>
+</html>
